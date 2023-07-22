@@ -3,13 +3,21 @@ import './App.css';
 import Home from './Compoents/Home/Home';
 import About from './Compoents/About/About';
 import Products from './Compoents/Products/Products';
+import Main from './Layout/Main';
+import Friends from './Compoents/Friends/Friends';
 
 function App() {
     const router = createBrowserRouter([
-        {path:'', element:<div>This is default Page</div>},
-        {path:'/home', element:<Home></Home>},
+        {path:'', element:<Main></Main>, 
+        children:[
+          {path:'/', element:<Home></Home>},
+          {path:'/home', element:<Home></Home>},
+          {path:'/products',element:<Products></Products>},
+          {path:'/friends', element:<Friends></Friends>}
+        ]},
+    
         {path:'/about', element:<About></About>},
-        {path:'/products',element:<Products></Products>}
+        
 
     ])
 
